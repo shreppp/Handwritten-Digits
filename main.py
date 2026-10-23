@@ -29,8 +29,6 @@ class Net(nn.Module): # the cnn class that contains its architecture and forward
 
         return x
 
-batch_size = 64 # number of training images the model has a forward and backward pass (forward prop and backprop) over before updating the weights (gradient descent) after averaging the gradients across the batch
-
 # the next four lines just load the data set, the dataset is imported from torchvision and the loader is pytorch's dataloader.
 train_dataset = datasets.MNIST(root='dataset/', train=True, transform=transforms.ToTensor(), download=True)
 train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
@@ -45,7 +43,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 in_channels = 1  # in channels determine if the image is grayscale, rgb, or rgba (1, 3, and 4 channels respectively) idk what 2 channels is i think its grayscale with transparency
 num_classes = 10
 learning_rate = 0.001
-batch_size = 64
+batch_size = 64 # number of training images the model has a forward and backward pass (forward prop and backprop) over before updating the weights (gradient descent) after averaging the gradients across the batch
 num_epochs = 500
 
 # Initialize Network
